@@ -2,7 +2,7 @@
 body {
     margin: 0;
     height:100%;
-    background-image: url("body.png");
+    background-image: url("images/body.png");
 }
 
 p {
@@ -13,7 +13,7 @@ p {
 header {
     text-align: center;
     border-bottom: 2px solid black;
-    background-image: url("./header.png");
+    background-image: url("images/header.png");
     background-color: khaki;
     padding: 1em;
 }
