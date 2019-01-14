@@ -1,0 +1,45 @@
+
+body {
+    margin: 0;
+    height:100%;
+    background-image: url("body.png");
+}
+
+p {
+    margin-left: 2em;
+    width: 80%;
+    font-size: 33px;
+}
+header {
+    text-align: center;
+    border-bottom: 2px solid black;
+    background-image: url("./header.png");
+    background-color: khaki;
+    padding: 1em;
+}
+
+h1 {
+    font-size: 60px;
+    font-family: Impact, Charcoal, sans-serif;
+}
+
+input[type=text] {
+    font-size: 25px;
+    width: 980px;
+    padding: 12px 20px;
+    margin-left: 2em;
+    margin-top: 1em;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+footer {
+    background-color: palegoldenrod;
+    padding: 8em;
+    width: 100%;
+    bottom: 0;
+    position:fixed;
+    border-top: 2px solid gray;
+}
