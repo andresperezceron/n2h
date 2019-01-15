@@ -6,28 +6,27 @@ body {
 }
 
 p {
-    margin-left: 2em;
-    width: 80%;
-    font-size: 33px;
+    margin-left: 1em;
+    width: 50%;
+    font-size: 25px;
 }
+
 header {
     text-align: center;
-    border-bottom: 2px solid black;
+    border-bottom: 2px solid coral;
     background-image: url("images/header.png");
-    background-color: khaki;
     padding: 1em;
 }
 
 h1 {
-    font-size: 60px;
-    font-family: Impact, Charcoal, sans-serif;
+    font-size: 30px;
 }
 
 input[type=text] {
     font-size: 25px;
     width: 980px;
     padding: 12px 20px;
-    margin-left: 2em;
+    margin-left: 1em;
     margin-top: 1em;
     display: inline-block;
     border: 1px solid #ccc;
@@ -37,7 +36,7 @@ input[type=text] {
 
 footer {
     background-color: palegoldenrod;
-    padding: 8em;
+    padding: 2em;
     width: 100%;
     bottom: 0;
     position:fixed;
