@@ -171,7 +171,7 @@ eval("var Lang = __webpack_require__(/*! ./Lang */ \"./Lang.js\");\r\n\r\nfuncti
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-eval("\r\nvar Periodo = __webpack_require__(/*! ./Periodo.js */ \"./Periodo.js\");\r\nvar result = document.getElementById(\"result\");\r\nvar numStr = document.getElementById(\"numStr\");\r\n\r\nnumStr.onkeypress = function botonOnKeyDown(event) {\r\n    if((event.key > '9' || event.key < '0') && event.key !== \"Backspace\")\r\n        return false;\r\n};\r\n\r\nnumStr.onkeyup = function botonOnClick() {\r\n    result.innerText = new Periodo(numStr.value, \"Spanish\").handle();\r\n};\r\n\r\n\r\n//console.log(new Periodo(\"1121\", \"Spanish\").handle());\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://n2h/./index.js?");
+eval("\r\nvar Periodo = __webpack_require__(/*! ./Periodo.js */ \"./Periodo.js\");\r\nvar result = document.getElementById(\"result\");\r\nvar numStr = document.getElementById(\"numStr\");\r\n\r\nnumStr.onkeypress = function botonOnKeyDown(event) {\r\n    result.innerText = event.key;\r\n    //if((event.key > '9' || event.key < '0') && event.key !== \"Backspace\")\r\n      //  return false;\r\n};\r\n\r\nnumStr.onkeyup = function botonOnClick() {\r\n    //result.innerText = new Periodo(numStr.value, \"Spanish\").handle();\r\n};\r\n\r\n\r\n//console.log(new Periodo(\"1121\", \"Spanish\").handle());\r\n\r\n\r\n\r\n\r\n\n\n//# sourceURL=webpack://n2h/./index.js?");
 
 /***/ })
 
