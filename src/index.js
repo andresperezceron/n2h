@@ -5,6 +5,7 @@ var numStr = document.getElementById("numStr");
 
 numStr.onkeypress = function botonOnKeyDown(e) {
     var maxleng = 66;
+    result.innerText = e.code;
     /*if(numStr.value.length === maxleng)
         return false;
     if((e.key > '9' || e.key < '0') && e.key !== "Backspace")
@@ -12,20 +13,21 @@ numStr.onkeypress = function botonOnKeyDown(e) {
 };
 
 numStr.onkeyup = function botonOnClick(e) {
-    var maxleng = 66;
+    /*var maxleng = 66;
     var validNumber = "";
     if(numStr.value.length > maxleng)
         numStr.value = numStr.value.substring(0, maxleng);
 
     if(invalidNumber(numStr.value)) {
         var novalidNumber = numStr.value;
+        console.log(e.code);
         for(var i = 0; i < novalidNumber.length; i++) {
             if(novalidNumber.charAt(i) >= '0' && novalidNumber.charAt(i) <= '9')
                 validNumber += novalidNumber.charAt(i);
         }
         numStr.value = validNumber;
     }
-    result.innerText = new Periodo(numStr.value, "Spanish").handle();
+    result.innerText = new Periodo(numStr.value, "Spanish").handle();*/
 };
 
 function invalidNumber(str) {
