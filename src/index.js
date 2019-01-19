@@ -4,19 +4,38 @@ var result = document.getElementById("result");
 var numStr = document.getElementById("numStr");
 
 numStr.onkeypress = function botonOnKeyDown(e) {
-    result.innerText = e.keyCode;
-    //if((event.key > '9' || event.key < '0') && event.key !== "Backspace")
-      //  return false;
+    var maxleng = 66;
+    if(numStr.value.length === maxleng)
+        return false;
+    if((e.key > '9' || e.key < '0') && e.key !== "Backspace")
+        return false;
 };
 
 numStr.onkeyup = function botonOnClick(e) {
-    console.log("entron en okeyup")
-    //result.innerText = new Periodo(numStr.value, "Spanish").handle();
+    var maxleng = 66;
+
+    if(numStr.value.length > maxleng)
+        numStr.value = numStr.value.substring(0, maxleng);
+
+    if(invalidNumber(numStr.value)) {
+        var validNumber = "";
+        for(var i = 0; i < numStr.value.length; i++) {
+            if(numStr.value.charAt(i) >= '0' && numStr.value.charAt(i) <= '9')
+                validNumber += numStr.value.charAt(i);
+        }
+        numStr.value = validNumber;
+    }
+    result.innerText = new Periodo(numStr.value, "Spanish").handle();
 };
 
+function invalidNumber(str) {
+    for(var i = 0; i < str.length; i++) {
+        if((str.charAt(i) > '9' || str.charAt(i) < '0') && str.charAt(i) !== "Backspace")
+            return true;
+    }
+    return false;
+}
 
 //console.log(new Periodo("1121", "Spanish").handle());
-
-
 
 
