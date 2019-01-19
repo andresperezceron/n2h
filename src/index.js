@@ -24,8 +24,8 @@ numStr.onkeyup = function botonOnClick(e) {
                 validNumber += novalidNumber.charAt(i);
         }
         numStr.value = validNumber;
-    }
-    result.innerText = new Periodo(numStr.value, "Spanish").handle();
+    }else validNumber = numStr.value;
+    result.innerText = new Periodo(validNumber, "Spanish").handle();
 };
 
 function invalidNumber(str) {
@@ -37,5 +37,3 @@ function invalidNumber(str) {
 }
 
 //console.log(new Periodo("1121", "Spanish").handle());
-
-
