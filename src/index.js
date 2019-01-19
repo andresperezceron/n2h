@@ -19,9 +19,10 @@ numStr.onkeyup = function botonOnClick(e) {
 
     if(invalidNumber(numStr.value)) {
         var validNumber = "";
-        for(var i = 0; i < numStr.value.length; i++) {
-            if(numStr.value.charAt(i) >= '0' && numStr.value.charAt(i) <= '9')
-                validNumber += numStr.value.charAt(i);
+        var novalidNumber = numStr.value;
+        for(var i = 0; i < novalidNumber.length; i++) {
+            if(novalidNumber.charAt(i) >= '0' && novalidNumber.charAt(i) <= '9')
+                validNumber += novalidNumber.charAt(i);
         }
         numStr.value = validNumber;
     }
