@@ -64,4 +64,25 @@ Exception.Spanish = {
     }
 };
 
+Exception.invalidEntry = {
+    check : function(numStr) {
+        if(numStr === "") {
+            this.getException = "";
+            return true;
+        }
+        for(var i = 0; i < numStr.length; i++) {
+            if((numStr.charAt(i) > '9' || numStr.charAt(i) < '0') && numStr.charAt(i) !== "Backspace") {
+                this.getException = "NUMERO INTRODUCIDO NO VALIDO. INSERTAR SOLO DIGITOS.";
+                return true;
+            }
+        }
+        if(numStr.length >= 67) {
+            this.getException = "NUMERO DEMASIADO LARGO. MAXIMO 66 DIGITOS.";
+            return true;
+        }
+        return false;
+    },
+    getException : ""
+};
+
 module.exports = Exception;

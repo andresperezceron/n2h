@@ -11,8 +11,8 @@ numStr.onkeypress = function botonOnKeyDown(e) {
         return false;
 };
 
-numStr.onkeyup = function botonOnClick(e) {
-    var maxleng = 66;
+numStr.onkeyup = function botonOnClick() {
+    /*var maxleng = 66;
     var validNumber = "";
     if(numStr.value.length > maxleng)
         numStr.value = numStr.value.substring(0, maxleng);
@@ -24,16 +24,8 @@ numStr.onkeyup = function botonOnClick(e) {
                 validNumber += novalidNumber.charAt(i);
         }
         numStr.value = validNumber;
-    }else validNumber = numStr.value;
-    result.innerText = new Periodo(validNumber, "Spanish").handle();
+    }else validNumber = numStr.value;*/
+    result.innerText = new Periodo(numStr.value, "Spanish").handle();
 };
-
-function invalidNumber(str) {
-    for(var i = 0; i < str.length; i++) {
-        if((str.charAt(i) > '9' || str.charAt(i) < '0') && str.charAt(i) !== "Backspace")
-            return true;
-    }
-    return false;
-}
 
 //console.log(new Periodo("1121", "Spanish").handle());
