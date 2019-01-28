@@ -14,18 +14,24 @@ function TernaTraslator() {
         if(Exception.seisceros.check(terna, periodo))
             return Exception.seisceros.getException;
 
-        if(Exception.Spanish.decenacaUno.check(d))
-            return Exception.Spanish.decenacaUno.getException(c, u, sprCentenas, periodo.traductor);
-        if(Exception.Spanish.decenaDos.check(d))
-            return Exception.Spanish.decenaDos.getException(c, d, u, sprCentenas, periodo);
-        if(Exception.Spanish.unMil.check(periodo))
-            return Exception.Spanish.unMil.getException;
-        if(Exception.Spanish.terna100.check(terna))
-            return Exception.Spanish.terna100.getException;
-        if(Exception.Spanish.ultimaTernaTerminaEnUno.check(u, periodo))
-            return periodo.traductor.getCentena(c) + sprCentenas +
-            periodo.traductor.getDecena(d) + sprUnidades +
-            periodo.traductor.getUnidad(u) + "o";
+        if(periodo.traductor.nombreLang === "Spanish") {
+            if (Exception.Spanish.decenacaUno.check(d))
+                return Exception.Spanish.decenacaUno.getException(c, u, sprCentenas, periodo.traductor);
+            if (Exception.Spanish.decenaDos.check(d))
+                return Exception.Spanish.decenaDos.getException(c, d, u, sprCentenas, periodo);
+            if (Exception.Spanish.unMil.check(periodo))
+                return Exception.Spanish.unMil.getException;
+            if (Exception.Spanish.terna100.check(terna))
+                return Exception.Spanish.terna100.getException;
+            if (Exception.Spanish.ultimaTernaTerminaEnUno.check(u, periodo))
+                return periodo.traductor.getCentena(c) + sprCentenas +
+                    periodo.traductor.getDecena(d) + sprUnidades +
+                    periodo.traductor.getUnidad(u) + "o";
+        }
+
+        if(periodo.traductor.nombreLang === "English")
+            if(Exception.English.decenacaUno.check(d))
+                return Exception.English.decenacaUno.getException(c, u, sprCentenas, periodo.traductor);
 
         return periodo.traductor.getCentena(c) + sprCentenas +
             periodo.traductor.getDecena(d) + sprUnidades +

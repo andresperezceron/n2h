@@ -8,6 +8,7 @@ function Traductor(lang) {
 
     this.sprMiles = Lang[lang].sprMiles;
     this.nombreLang = Lang[lang].nombre;
+    this.escala = Lang[lang].escala;
     this.getUnidad = function(u) { return unidades[u]; };
     this.getDecena = function(d) { return decenas[d]; };
     this.getCentena = function(c) { return centenas[c]; };

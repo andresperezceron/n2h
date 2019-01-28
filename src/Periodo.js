@@ -21,9 +21,8 @@ function handle() {
 
     while((terna = this.nextTerna()) !== null) {
         resultTT = ternaTraslator.traslateTerna(terna, this);
-        sprPeriodo = this.sprPeriodoMaker(terna);
-        this.peso = (this.estamosEnMil()) ? this.peso - 0 : this.peso - 1;
-        this.secuenceMillares++;
+        sprPeriodo = this.sprPeriodoMaker(terna, this);
+        this.prepareNextTerna();
         n2h += resultTT + sprPeriodo;
     }
     return n2h;

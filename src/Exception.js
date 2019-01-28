@@ -8,10 +8,39 @@ Exception.seisceros = {
     getException : ""
 };
 
+Exception.invalidEntry = {
+    check : function(numStr) {
+        if(numStr === "0") {
+            this.getException = "cero";
+            return true;
+        }
+        if(numStr.charAt(0) === '0' && numStr.length >= 2) {
+            this.getException = "El primer dígito no puede ser cero.";
+            return true;
+        }
+        if(numStr === "") {
+            this.getException = "";
+            return true;
+        }
+        for(var i = 0; i < numStr.length; i++) {
+            if((numStr.charAt(i) > '9' || numStr.charAt(i) < '0') && numStr.charAt(i) !== "Backspace") {
+                this.getException = "No puede contener carácteres. Solo se admiten dígitos.";
+                return true;
+            }
+        }
+        if(numStr.length >= 67) {
+            this.getException = "Demasiado largo. Máximo 66 dígitos.";
+            return true;
+        }
+        return false;
+    },
+    getException : ""
+};
+
 Exception.Spanish = {
     unMil : {
         check : function(periodo) {
-            return (periodo.terna001() && periodo.estamosEnMil() && periodo.traductor.nombreLang === "Spanish");
+            return (periodo.terna001() && periodo.estamosEnMil());
         },
         getException : ""
     },
@@ -21,20 +50,20 @@ Exception.Spanish = {
             return d === 1;
         },
         getException : function(c, u, sprCentenas, traductor) {
-            var newUnidad;
+            var newDecena;
             switch (u) {
-                case 0: newUnidad = "diez"; break;
-                case 1: newUnidad = "once"; break;
-                case 2: newUnidad = "doce"; break;
-                case 3: newUnidad = "trece"; break;
-                case 4: newUnidad = "catorce"; break;
-                case 5: newUnidad = "quince"; break;
+                case 0: newDecena = "diez"; break;
+                case 1: newDecena = "once"; break;
+                case 2: newDecena = "doce"; break;
+                case 3: newDecena = "trece"; break;
+                case 4: newDecena = "catorce"; break;
+                case 5: newDecena = "quince"; break;
                 case 6:
                 case 7:
                 case 8:
-                case 9: newUnidad = "dieci" + traductor.getUnidad(u);
+                case 9: newDecena = "dieci" + traductor.getUnidad(u);
             }
-            return traductor.getCentena(c) + sprCentenas + newUnidad;
+            return traductor.getCentena(c) + sprCentenas + newDecena;
         }
     },
 
@@ -64,25 +93,29 @@ Exception.Spanish = {
     }
 };
 
-Exception.invalidEntry = {
-    check : function(numStr) {
-        if(numStr === "") {
-            this.getException = "";
-            return true;
-        }
-        for(var i = 0; i < numStr.length; i++) {
-            if((numStr.charAt(i) > '9' || numStr.charAt(i) < '0') && numStr.charAt(i) !== "Backspace") {
-                this.getException = "NUMERO INTRODUCIDO NO VALIDO. INSERTAR SOLO DIGITOS.";
-                return true;
+Exception.English = {
+    decenacaUno : {
+        check : function(d) {
+            return d === 1;
+        },
+        getException : function(c, u, sprCentenas, traductor) {
+            var newDecena;
+            switch (u) {
+                case 0: newDecena = "teen"; break;
+                case 1: newDecena = "eleven"; break;
+                case 2: newDecena = "twelve"; break;
+                case 3: newDecena = "thirteen"; break;
+                case 4:
+                case 5:
+                case 6:
+                case 7:
+                case 8:
+                case 9:
+                    newDecena = traductor.getUnidad(u) + "teen";
             }
+            return traductor.getCentena(c) + sprCentenas + newDecena;
         }
-        if(numStr.length >= 67) {
-            this.getException = "NUMERO DEMASIADO LARGO. MAXIMO 66 DIGITOS.";
-            return true;
-        }
-        return false;
     },
-    getException : ""
 };
 
 module.exports = Exception;

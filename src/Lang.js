@@ -4,6 +4,7 @@ Lang.Spanish = {
 
     nombre : "Spanish",
     sprMiles : " mil ",
+    escala : "larga",
 
     unidades : [
         "",
@@ -71,6 +72,7 @@ Lang.English = {
 
     nombre   : "English",
     sprMiles : " thousand ",
+    escala : "corta",
 
     unidades : [
         "",
@@ -109,7 +111,7 @@ Lang.English = {
         "nine hundred"
     ],
     millares : [
-        "",
+        "thousand",
         "millions",
         "billions",
         "trillions",
