@@ -2,6 +2,7 @@
 var Periodo = require("./Periodo.js");
 var result = document.getElementById("result");
 var numStr = document.getElementById("numStr");
+var idioma = document.getElementById("idioma");
 
 numStr.onkeypress = function botonOnKeyDown(e) {
     var maxleng = 66;
@@ -12,7 +13,8 @@ numStr.onkeypress = function botonOnKeyDown(e) {
 };
 
 numStr.onkeyup = function botonOnClick() {
-    result.innerText = new Periodo(numStr.value, "English").handle();
+    var lang = (idioma.innerText === "Inglés") ? "Spanish" : "English";
+    result.innerText = new Periodo(numStr.value, lang).handle();
 };
 
 //console.log(new Periodo("8125", "English").handle());
